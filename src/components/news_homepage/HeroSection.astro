@@ -1,0 +1,41 @@
+---
+import Headline from "./Headline.astro";
+import {Headlines} from './data'
+import desktop_version from '@images/image-web-3-desktop.jpg'
+import mobile_version from "@images/image-web-3-mobile.jpg"
+---
+
+<div class="grid md:grid-cols-3 gap-5 grid-cols-1 md:grid-rows-2">
+    <div class="md:col-span-2 col-span-1 md:row-start-1 md:row-end-2 row-auto">
+        <img class="hidden md:block aspect-video w-full object-cover" src={desktop_version.src} alt="desktop_version">
+        <img class="block md:hidden aspect-video w-full object-cover" src={mobile_version.src} alt="mobile_version">
+    </div>
+    <div class="flex flex-col md:col-span-1 md:row-start-1 md:row-end-3 bg-slate-900 p-5 gap-5 row-auto order-last">
+        <h2 class="text-4xl text-yellow-600">New</h2>
+        <div class="h-5/6 flex flex-col justify-around gap-3">
+            {Headlines.map((headline) => (
+                <Headline
+                    title={headline.title}
+                    content={headline.content}
+                />
+                <span class="h-[2px] w-full bg-slate-500"></span>
+            ))
+            }
+        </div>
+      </div>
+      <div class="md:col-span-2 md:row-start-2 md:row-end-3 flex flex-col md:flex-row gap-3 justify-evenly p-2 row-auto col-span-1">
+        <h1 class="text-[60px] text-stone-800 font-bold md:w-1/2">
+          The Bright Future of Web 3.0 ?
+        </h1>
+        <div class="flex flex-col md:w-1/2 h-full justify-between items-start">
+          <p class="text-slate-700 text-lg">
+            We dive into the next evolution of the web that claims to put the
+            power of the platforms abck into the hands of the people. But is it
+            really fulfilling its promise ?
+          </p>
+          <button class="uppercase font-bold bg-red-500 hover:bg-slate-900 text-white h-12 w-48 mt-5 md:m-auto">
+            Read more
+          </button>
+        </div>
+    </div>
+    </div>

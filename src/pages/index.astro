@@ -1,9 +1,32 @@
 ---
 import Layout from "@layouts/Layout.astro";
-
+import background from "@images/default.svg";
 ---
 
-<Layout title="Frontend Mentor Challenges">
-<main class="w-full h-full bg-default p-4">
+<Layout title="Frontend Mentor Challenges | Drumzy">
+<main class={`w-full h-full p-4 flex flex-col justify-center items-center font-poppins gap-6`} style={`background-image: url(${background.src})`}>
+    <h1 class="text-6xl md:text-8xl font-black text-stone-800 dark:text-white">Frontend Mentor Challenges</h1>
+    <p class="text-2xl font-medium text-stone-800 dark:text-white">
+        this website is made to showcase my aproach in solving different
+        challenges in
+        <a
+          href="https://www.frontendmentor.io/"
+          class="animate-pulse dark:text-[#daae51] text-blue-700 hover:animate-none"
+        >
+          {" "}
+          Frontend Mentor
+        </a>
+    </p>
+    <p class="text-2xl font-medium text-stone-800 dark:text-white">
+        Project Repository :{" "}
+        <a
+          href="https://github.com/Drumzy/frontend_mentor"
+          class="animate-pulse dark:text-[#daae51] text-blue-700 hover:animate-none"
+        >
+          {" "}
+          Drumzy/frontend_mentor
+        </a>
+    </p>
+    <a class="text-white dark:text-stone-800 bg-stone-800 hover:bg-gray-600 dark:bg-white dark:hover:bg-gray-200 rounded-lg text-sm p-2.5" href="/challenges">Showcase Challenges</a>
 </main>
 </Layout>

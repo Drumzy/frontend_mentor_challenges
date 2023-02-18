@@ -1,0 +1,26 @@
+---
+import Breadcumbs from "@components/Breadcumbs.astro";
+import QrCodeComponent from "@components/qr_code_component.astro";
+import Layout from "@layouts/Layout.astro";
+import { CollectionEntry, getCollection } from "astro:content";
+
+interface Props{
+    challenge: CollectionEntry<'challenges'>;
+}
+
+const { challenge_id } = Astro.params;
+const challenge_collection = await getCollection('challenges');
+const challenge = challenge_collection.find((challenge) => challenge.slug === challenge_id)
+if(!challenge) return Astro.redirect("/404");
+const {Content} = await challenge.render();
+
+---
+
+<Layout title={challenge.slug.replaceAll('_',' ')}>
+    <main class="w-full h-full flex flex-col lg:flex-row px-4 py-4 overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-100">
+        <div class="w-full prose max-w-none lg:prose-lg dark:prose-invert font-poppins p-4 md:p-8 mb-6">
+            <Breadcumbs />
+            <Content />
+        </div>
+    </main>
+</Layout>

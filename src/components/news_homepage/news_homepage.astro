@@ -1,0 +1,13 @@
+---
+import HeroSection from "./HeroSection.astro";
+import LastSection from "./LastSection.astro";
+import ResponsiveMenu from "./ResponsiveMenu";
+
+---
+
+<div class="w-full md:px-60 p-5 flex flex-col gap-12 bg-slate-50 h-fit shadow-2xl">
+      <ResponsiveMenu client:idle/>
+      <HeroSection />
+      <LastSection />
+      <div class="h-[50px]"></div>
+</div>

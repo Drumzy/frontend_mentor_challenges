@@ -1,0 +1,17 @@
+---
+import SpecialHeadline from "./SpecialHeadline.astro";
+import { HeadingsData } from "./data";
+
+---
+
+<div class="grid md:grid-cols-3 gap-5 w-full">
+    {HeadingsData.map((heading) => (
+        <SpecialHeadline
+          key={heading.ranking}
+          title={heading.title}
+          ranking={heading.ranking}
+          description={heading.description}
+          img={heading.img}
+        />
+    ))}
+</div>
