@@ -1,3 +1,7 @@
+---
+title: News Home Page
+---
+
 import NewsHomepage from "@components/news_homepage/news_homepage.astro";
 
 <div class="w-full flex justify-center mb-4 not-prose not-prose">
@@ -16,6 +20,8 @@ This is a solution to the [News homepage challenge on Frontend Mentor](https://w
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
+    - [Grid System](#grid-system)
+    - [Astro Islands](#astro-islands)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
@@ -41,55 +47,79 @@ Users should be able to:
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
+- [Astro](https://astro.build)
+- [TailwindCSS](https://tailwindcss.com) Utility-first CSS framework
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Grid & Flexbox
+- Mobile-first workflow
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+#### Grid System
 
-To see how you can add code snippets, see below:
+Learning the grid system was initialy overwhelming, but by taking on this challenge, i was able to solidify my understanding.
+In this challenge, the second part of the UI contains an image & heading stacked on top of eachother and a side section.
+
+After observing this layout, i landed on using the grid system and by experimenting with dierent classes and configurations,
+I was able to see firsthand how the grid system worked and how it could be used to create flexible and responsive designs.
+Through this challenge, I not only gained a better understanding of the grid system, but also a newfound confidence in using it for future projects.
+
+Here you can see the layout i landed on:
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<div class="grid md:grid-cols-6 gap-5 grid-cols-1 h-2/3">
+  <div
+    class="col-span-1 row-auto md:row-start-1 md:col-start-1 md:row-end-3 md:col-end-5"
+  >
+    ...
+  </div>
+  <div
+    class="flex flex-col bg-slate-900 p-5 gap-5 row-auto order-last md:row-start-1 md:col-start-5 md:row-end-5 md:col-end-7"
+  >
+    ...
+  </div>
+  <div
+    class="flex flex-col md:flex-row gap-3 justify-evenly p-2 row-auto col-span-1 md:row-start-3 md:col-start-1 md:row-end-5 md:col-end-5"
+  >
+    ...
+  </div>
+</div>
 ```
 
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
+#### Astro Islands
+
+This part is not focus on the design side but rather on thechnical choices i made for this project not specific for this challenge.  
+Taking advantage of innovative features can greatly enhance the development process.
+AstroJS is a powerful framework that allows for seamless integration of multiple UI frameworks in a single project.  
+One of its most impressive features is Astro Lands, which enables developers to bundle JavaScript on the client side only when necessary.  
+This approach optimizes performance by reducing the size of the codebase, leading to faster load times and improved user experience.  
+By using Astro Lands, developers can leverage the strengths of different UI frameworks, without sacrificing performance or incurring unnecessary bloat.  
+This unique capability makes AstroJS a valuable tool for any developer seeking to create dynamic and responsive web applications with a high level of flexibility and customization
+
+To showcase an example :
+
+```astro
+<div
+  class="w-full md:px-60 p-5 flex flex-col gap-12 bg-slate-50 h-fit shadow-2xl"
+>
+  <ResponsiveMenu client:idle />
+  <HeroSection />
+  <LastSection />
+</div>
 ```
 
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+Where the "ResponsiveMenu" is a react component with a client directive of idle so that it loads the component only when the main thread is free.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Im happy with the results that turned out after experimenting with different aspects of this challenge.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+But there is always a room for improvement, making the images scale better with the screen size would be a great start.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Grid Css Generator](https://cssgrid-generator.netlify.app/) - This tool helped me understand the basics of the grid system which was after that was an easy thing to convert them to tailwindcss classes.
+- [Astro Client Directives](https://docs.astro.build/en/reference/directives-reference/#client-directives) - official docs of AstroJS about the client directives and UI framework components hydration.
 
 ## Author
 

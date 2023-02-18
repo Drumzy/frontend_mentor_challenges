@@ -1,9 +1,9 @@
 import {defineCollection, z} from 'astro:content'
 
 export const collections = {
-    challenge: defineCollection({
+    challenges: defineCollection({
         schema: z.object({
-            slug: z.string()
+            title: z.string(),
         })
     })
 }

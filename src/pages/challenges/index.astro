@@ -1,7 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro"
 import { getCollection } from "astro:content";
-
 const challenges = await getCollection('challenges');
 ---
 
@@ -10,7 +9,7 @@ const challenges = await getCollection('challenges');
     <h1 class="text-4xl md:text-6xl font-black text-stone-800 dark:text-white">Challenges</h1>
     <div class="grid grid-flow-col gap-3">
         {challenges.map((challenge)=>(
-                <a class="text-white uppercase dark:text-stone-800 bg-stone-800 hover:bg-gray-600 dark:bg-white dark:hover:bg-gray-200 rounded-lg text-sm p-2.5" href={"/challenges/"+challenge.slug}>{challenge.slug.replaceAll('_',' ')}</a>
+                    <a class="text-white dark:text-stone-800 bg-stone-800 hover:bg-gray-600 dark:bg-white dark:hover:bg-gray-200 rounded-lg text-sm p-2.5" href={"/challenges/"+challenge.slug}>{challenge.data.title}</a>
         )
         )}
     </div>
